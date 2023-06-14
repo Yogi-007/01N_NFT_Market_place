@@ -11,3 +11,7 @@ components:
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
+- type: Label
+  properties: {}
+  name: Label_12
+  layout_properties: {slot: title}
