@@ -1,9 +1,11 @@
 allow_embedding: false
-package_name: Material_Design_1
-name: Material Design 1
-startup_form: Form1
+package_name: NFT_Market_Place
+startup: {type: form, module: Base_Page}
+name: NFT_Market_Place
+startup_form: null
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
   server_spec: null}
+metadata: {title: NFT Market, description: A place to shop your nfts, logo_img: 'asset:icons8-nft-256.png'}
 services:
 - source: /runtime/services/tables.yml
   client_config: {}
