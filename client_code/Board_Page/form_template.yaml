@@ -6,12 +6,5 @@ components:
   properties: {col_widths: '{}'}
   name: CP_board
   layout_properties: {grid_position: 'OUKPZD,URKDQB'}
-  components:
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: board of current nfts from db!, font_size: null, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false, icon: ''}
-    name: LB_placeholder
-    layout_properties: {grid_position: 'MYNRIY,FPRYOB'}
+  components: []
 is_package: true

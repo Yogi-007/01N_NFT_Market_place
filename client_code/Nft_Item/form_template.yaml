@@ -1,0 +1,44 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+  name: CP_com
+  layout_properties: {grid_position: 'DEBPMU,WHQPNU'}
+  components:
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: name, font_size: 20, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: true, underline: true,
+      icon: ''}
+    name: LB_com_name
+    layout_properties: {grid_position: 'KOLZTH,VMEMZG'}
+  - type: Image
+    properties: {}
+    name: IMG_com
+    layout_properties: {grid_position: 'QZMOZE,VNKFCU'}
+  - type: Label
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: decription, font_size: 15, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: LB_com_des
+    layout_properties: {grid_position: 'RBOQNO,UFODHT'}
+  - type: Button
+    properties: {role: primary-color, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: BUY, font_size: 20, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: true, background: '', bold: true,
+      underline: false, icon: ''}
+    name: BT_com
+    layout_properties: {grid_position: 'SHXCTX,LHWHLL'}
+is_package: true
+custom_component: true
+properties:
+- {name: name, type: string, default_value: '', default_binding_prop: true}
+- {name: image, type: object}
+- {name: callback_button, type: object, description: function to call when buying nft when clicked on buy button.}
+- {name: description, type: string, default_value: ''}
+- {name: button_text, type: string, default_value: ''}
