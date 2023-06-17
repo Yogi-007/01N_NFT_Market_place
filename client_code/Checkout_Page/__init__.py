@@ -10,8 +10,20 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 class Checkout_Page(Checkout_PageTemplate):
-  def __init__(self, **properties):
+  def __init__(self, id, back_cb, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.update_checkout(id)
+    self.back_cb = back_cb
 
-    # Any code you write here will run before the form opens.
+  def update_checkout(self,id):
+    nft = anvil.server.call('get_nft_details', id)
+    self.LB_name.text = nft["name"]
+    self.LB_decription.text = nft["decription"]
+    self.LB_price.text = f'${nft["price"]} USD'
+    self.IMG_checkout.source = nft["image"] 
+
+  def BT_back_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.back_cb()
+

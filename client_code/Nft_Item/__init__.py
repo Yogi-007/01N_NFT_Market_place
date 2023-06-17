@@ -17,4 +17,10 @@ class Nft_Item(Nft_ItemTemplate):
     self.LB_com_des.text = description
     self.BT_com.text = button_text
     self.IMG_com.source = image
+    self.button_callback = button_callback
     # Any code you write here will run before the form opens.
+
+  def BT_com_click(self, **event_args):
+    self.button_callback(self.LB_com_name.text.lower())
+    
+
