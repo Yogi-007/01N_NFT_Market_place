@@ -18,3 +18,5 @@ import anvil.server
 def get_all_nfts():
    return app_tables.nfts.client_readable()
 
+@anvil.server.callable
+def get_

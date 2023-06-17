@@ -17,7 +17,7 @@ class Board_Page(Board_PageTemplate):
     self.loadboard()
     # Any code you write here will run before the form opens.
   def loadboard(self):
-    nfts = anvil.server.call("recievecallsenddata").search()
+    nfts = anvil.server.call("get_all_nfts").search()
     board_panel = GridPanel()
     for i, nft in enumerate(nfts):
       c = Nft_Item(name = nft['name'], description = nft['decription'], button_text = f"Buy: ${nft['price']}", image = nft['image'], button_callback = None) 
