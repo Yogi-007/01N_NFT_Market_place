@@ -15,6 +15,6 @@ import anvil.server
 # Here is an example - you can replace it with your own:
 #
 @anvil.server.callable
-def ():
+def get_all_nfts():
    return app_tables.nfts.client_readable()
 
