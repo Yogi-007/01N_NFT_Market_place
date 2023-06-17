@@ -20,3 +20,4 @@ def get_all_nfts():
 
 @anvil.server.callable
 def get_nft_details(nft_id):
+  return 
