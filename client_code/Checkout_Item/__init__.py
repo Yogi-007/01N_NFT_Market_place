@@ -1,4 +1,4 @@
-from ._anvil_designer import Checkout_PageTemplate
+from ._anvil_designer import Checkout_ItemTemplate
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
@@ -9,7 +9,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-class Checkout_Page(Checkout_PageTemplate):
+class Checkout_Item(Checkout_ItemTemplate):
   def __init__(self, id, back_cb, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
