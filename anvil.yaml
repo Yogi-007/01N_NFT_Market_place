@@ -1,0 +1,82 @@
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/anvil/users.yml
+  client_config: {require_secure_passwords: true, use_email: true, allow_remember_me: true,
+    allow_signup: true, enable_automatically: true, confirm_email: true, remember_me_days: 365,
+    use_google: true, use_facebook: true}
+  server_config: {user_table: users}
+- source: /runtime/services/facebook.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/google.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/stripe.yml
+  client_config: {}
+  server_config: {}
+startup: {type: form, module: Base_Page}
+package_name: NFT_Market_Place
+allow_embedding: false
+name: NFT_Market_Place
+runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
+  server_spec: null}
+metadata: {title: NFT Market, description: A place to shop your nfts, logo_img: 'asset:icons8-nft-256.png'}
+startup_form: null
+db_schema:
+  users:
+    client: none
+    server: full
+    columns:
+    - name: email
+      type: string
+      admin_ui: {order: 0, width: 200}
+    - name: enabled
+      type: bool
+      admin_ui: {order: 1, width: 200}
+    - name: last_login
+      type: datetime
+      admin_ui: {order: 2, width: 200}
+    - name: password_hash
+      type: string
+      admin_ui: {order: 3, width: 200}
+    - name: n_password_failures
+      type: number
+      admin_ui: {order: 4, width: 200}
+    - name: confirmed_email
+      type: bool
+      admin_ui: {order: 5, width: 200}
+    - name: remembered_logins
+      type: simpleObject
+      admin_ui: {order: 6, width: 200}
+    - name: signed_up
+      type: datetime
+      admin_ui: {order: 7, width: 200}
+    - name: owned_nfts
+      admin_ui: {order: 8, width: 200}
+      type: simpleObject
+    title: Users
+  nfts:
+    client: none
+    server: full
+    columns:
+    - name: name
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: price
+      admin_ui: {order: 1, width: 200}
+      type: number
+    - name: created
+      admin_ui: {order: 2, width: 200}
+      type: datetime
+    - name: decription
+      admin_ui: {order: 3, width: 200}
+      type: string
+    - name: image
+      admin_ui: {order: 4, width: 200}
+      type: media
+    - name: id_name
+      admin_ui: {order: 5, width: 200}
+      type: string
+    title: Nfts
