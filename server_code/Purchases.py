@@ -16,9 +16,14 @@ import anvil.server
 # Here is an example - you can replace it with your own:
 #
 @anvil.server.callable
-def get_all_nfts():
-   return app_tables.nfts.client_readable()
+def charge_user(token, email, nft_idname):
+  stripe_customer = anvil.stripe.new_customer(email, token)
+  price = app_tables.nfts.get(id_name=nft_idname)["price"]
+  user = anvil.users.get_user()
+  if user['owned_nfts'] == None:
+    user['owned_nfts'] = []
+  if nft_idname in user['owned_nfts']:
+    return
+  result = stripe_customer.charge(amount = price*100, currency = "USD")
+  user['owned_nfts'] += [nft_idname]
 
-@anvil.server.callable
-def get_nft_details(nft_id):
-  return app_tables.nfts.get(id_name=nft_id)

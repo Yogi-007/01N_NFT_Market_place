@@ -1,5 +1,6 @@
 from ._anvil_designer import Base_PageTemplate
 from anvil import *
+import stripe.checkout
 import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
@@ -10,13 +11,23 @@ from anvil.tables import app_tables
 import anvil.users
 from ..Home_Page import Home_Page
 from ..Owned_Page import Owned_Page
+from .URLS import urls
+
 class Base_Page(Base_PageTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.go_to_home()
+    self.handle_urls()
     self.change_sign_in_text()
     # Any code you write here will run before the form opens.
+  def handle_urls(self):
+    url = get_url_hash().lower()
+    if url in urls:
+      self.content_panel.clear()
+      self.content_panel.add_component(urls[url]())
+    else:
+      self.go_to_home()
+
   def go_to_home(self):
     self.content_panel.clear()
     self.content_panel.add_component(Home_Page())

@@ -4,14 +4,21 @@ container:
 components:
 - type: ColumnPanel
   properties: {col_widths: '{}'}
-  name: CP_Owned
+  name: CP_board
   layout_properties: {grid_position: 'KOSRDB,ORIYXN'}
   components:
   - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: User Owned NFT's, font_size: null, font: '', spacing_above: small,
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'User Owned NFT''s:', font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
       underline: false, icon: ''}
     name: LB_PlaceHolder
     layout_properties: {grid_position: 'KHCMYA,RQAZAI'}
+  - type: Label
+    properties: {role: headline, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'You Do Not Own Any NFTS  :(', font_size: null, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '', bold: true, underline: false, icon: ''}
+    name: LB_NoNfts
+    layout_properties: {grid_position: 'HVGYXU,UITWLU'}
 is_package: true

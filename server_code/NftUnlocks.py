@@ -16,9 +16,14 @@ import anvil.server
 # Here is an example - you can replace it with your own:
 #
 @anvil.server.callable
-def get_all_nfts():
-   return app_tables.nfts.client_readable()
-
-@anvil.server.callable
-def get_nft_details(nft_id):
-  return app_tables.nfts.get(id_name=nft_id)
+def get_my_nfts():
+  user = anvil.users.get_user()
+  if user == None:
+    return []
+  if not user['owned_nfts']:
+    return []
+  nfts = []
+  for nft in user['owned_nfts']:
+    nfts_info = app_tables.nfts.get(id_name=nft)
+    nfts.append(nfts_info)
+  return nfts

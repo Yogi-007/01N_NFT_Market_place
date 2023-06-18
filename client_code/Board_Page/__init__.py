@@ -1,5 +1,6 @@
 from ._anvil_designer import Board_PageTemplate
 from anvil import *
+import stripe.checkout
 import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
@@ -9,7 +10,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.users
 from ..Nft_Item import Nft_Item
-from ..Checkout_Page import Checkout_Page
+from ..Checkout_Item import Checkout_Item
 class Board_Page(Board_PageTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -22,8 +23,8 @@ class Board_Page(Board_PageTemplate):
   
   def render_checkout(self, name):
     self.CP_board.clear()
-    self.CP_board.add_component(Checkout_Page(name, self.back))
-  
+    self.CP_board.add_component(Checkout_Item(name, self.back))
+
   def loadboard(self):
     nfts = anvil.server.call("get_all_nfts").search()
     board_panel = GridPanel()
